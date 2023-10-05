@@ -8,6 +8,7 @@ public class GrpcServer {
     public static void main(String[] args) throws Exception {
         Server server = ServerBuilder.forPort(6565)
                 .addService(new BankService())
+                .addService(new TransferService())
                 .build();
 
         server.start();

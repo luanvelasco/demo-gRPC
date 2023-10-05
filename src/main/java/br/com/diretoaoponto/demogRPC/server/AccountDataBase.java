@@ -27,7 +27,7 @@ public class AccountDataBase {
             .boxed()
             .collect(Collectors.toMap(
                     Function.identity(),
-                    v -> v * 10
+                    v -> 100
             ));
 
     public static int getBalance(int accountNId) {
@@ -43,6 +43,10 @@ public class AccountDataBase {
 
     public static int deductBalance(int accountNId, int amount) {
         return MAP.computeIfPresent(accountNId, (k, v) -> v - amount);
+    }
+
+    public static void printAccountDetails() {
+        System.out.println(MAP);
     }
 
 
